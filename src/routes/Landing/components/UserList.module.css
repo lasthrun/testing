@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: var(--alignmentL);
+}
+
+.wrapper {
+  max-width: var(--box-max-width);
+  width: 100%;
+}

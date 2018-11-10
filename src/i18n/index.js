@@ -6,10 +6,32 @@ const textStore = {
   [ENGLISH]: enStore,
   [TRADITIONAL_CHINESE]: tcStore,
 };
-
-export default function ({ language, path }) {
-  if (textStore[language][path] !== undefined) {
-    return textStore[language][path];
-  }
+/**
+ * @description if can not found the text, throw error
+ * @param {string} path - the path of the text
+ * */
+const notFoundError = (path) => {
   throw new Error(`text not found. path: "${path}"`);
+};
+/**
+ * @description get the text form the textStore
+ * @param {string} language
+ * @param {string} path - the path of the text
+ * @return {string|object}
+ * */
+export default function i18n({ language, path }) {
+  const pathArray = path.split('.');
+  let textData = textStore[language];
+
+  pathArray.forEach((pathData) => {
+    if (textData[pathData] === undefined) {
+      notFoundError(path);
+    }
+    textData = textData[pathData];
+  });
+
+  if (typeof textData !== 'string') {
+    notFoundError(path);
+  }
+  return textData;
 }

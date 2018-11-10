@@ -1,0 +1,37 @@
+.container {
+  padding: var(--alignmentS) var(--alignmentM);
+  border: none;
+  min-width: 80px;
+}
+
+.basic {
+  background-color: var(--darkBlue);
+  color: var(--white);
+  transition: background-color .2s;
+}
+
+.basic:hover {
+  background-color: var(--darkBlueHover);
+}
+
+.border {
+  background-color: var(--white);
+  border: 2px solid var(--darkBlue);
+  transition: border .2s;
+}
+
+.border:hover {
+  border: 2px solid var(--darkBlueHover);
+}
+
+.text {
+  padding: 0;
+  background-color: var(--transparent);
+  color: var(--black);
+  transition: color .2s;
+  min-width: auto;
+}
+
+.text:hover {
+  color: var(--blackHover);
+}

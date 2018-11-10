@@ -1,0 +1,24 @@
+html {
+  /* color */
+  --hoverAlpha: .74;
+  --transparent: rgba(0,0,0,0);
+  --brand: rgba(0,165,70,1);
+  --brandHover: rgba(0,165,70,var(--hoverAlpha));
+  --darkBlue: rgba(0,58,112,1);
+  --darkBlueHover: rgba(0,58,112,var(--hoverAlpha));
+  --blue: rgba(0,126,245,1);
+  --lightBlue: rgba(115,184,249,1);
+  --white: rgba(255,255,255,1);
+  --black: rgba(0,0,0,1);
+  --blackHover: rgba(0,0,0,.56);
+  --paleGrey: rgba(184,190,202,1);
+  
+  /* alignment */
+  --alignmentL: 24px;
+  --alignmentM: 16px;
+  --alignmentS: 8px;
+  --alignmentXS: 4px;
+  
+  /* ui */
+  --box-max-width: 1028px;
+}
