@@ -1,18 +1,19 @@
 .container {
   display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 40px auto;
+  grid-template-rows: var(--header-height) 1fr;
+  grid-template-columns: 1fr minmax(0, var(--box-max-width)) 1fr;
   grid-template-areas:
-    "header"
-    "main";
-  width: 100%;
-  height: 100%;
+    "header header header"
+    ". main .";
 }
 
 .header {
+  position: sticky;
+  top: 0;
   grid-area: header;
 }
 
 .userList {
-  grid-row: main;
+  grid-area: main;
+  padding: var(--alignmentL);
 }

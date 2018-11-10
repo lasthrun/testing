@@ -9,7 +9,6 @@ export default {
   },
   [USERS]: {
     updateUsers: `${USERS}/updateUsers`,
-    selectUser: `${USERS}/selectUser`,
-    unSelectUser: `${USERS}/unSelectUser`,
+    updateUser: `${USERS}/updateUser`,
   },
 };

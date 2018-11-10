@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { unSelectUser } from '../actions';
 import { USERS } from '../constants/REDUCER_TYPES';
 import Header from '../components/Header';
 
@@ -7,7 +6,7 @@ const mapStateToProps = state => ({
   users: state[USERS],
 });
 
-const mapDispatchToProps = { unSelectUser };
+const mapDispatchToProps = {};
 
 export default connect(
   mapStateToProps,

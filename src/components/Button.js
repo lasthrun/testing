@@ -19,7 +19,7 @@ export const TEXT = 'TEXT';
  * */
 export default function Button(props) {
   const {
-    className, label, buttonType, onClick,
+    className, label, buttonType, onClick, tabIndex,
   } = props;
   const buttonClasses = classNames(
     styles.container,
@@ -30,7 +30,12 @@ export default function Button(props) {
   );
 
   return (
-    <button className={buttonClasses} type="button" onClick={onClick}>
+    <button
+      tabIndex={tabIndex}
+      className={buttonClasses}
+      type="button"
+      onClick={onClick}
+    >
       {label}
     </button>
   );
@@ -42,6 +47,7 @@ Button.propTypes = {
     BORDER,
     TEXT,
   ]),
+  tabIndex: PropTypes.string,
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
@@ -49,5 +55,6 @@ Button.propTypes = {
 
 Button.defaultProps = {
   className: '',
+  tabIndex: '0',
   buttonType: BASIC,
 };

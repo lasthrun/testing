@@ -6,11 +6,13 @@ import styles from './Header.module.css';
 import i18n from '../i18n';
 import Context from '../Context';
 import Button, { TEXT } from './Button';
-import { ENGLISH } from '../constants/LANGUAGE_TYPES';
+import { ENGLISH, TRADITIONAL_CHINESE } from '../constants/LANGUAGE_TYPES';
 
 export default function Header(props) {
   const { className } = props;
-  const { container, wrapper, homeButton } = styles;
+  const {
+    container, homeButton, en, tc, wrapper,
+  } = styles;
   const { language, setLanguage } = useContext(Context);
 
   return (
@@ -19,17 +21,31 @@ export default function Header(props) {
         <Route
           render={({ history }) => (
             <Button
+              buttonType={TEXT}
               className={homeButton}
-              label={
-              i18n({ path: 'header.home', language })}
+              label={i18n({
+                path: 'header.testing',
+                language,
+              })}
               onClick={() => { history.push('/'); }}
+              tabIndex="-1"
             />
           )}
         />
-        <div>
-          <Button buttonType={TEXT} label="EN" onClick={() => { setLanguage(ENGLISH); }} />
-          <Button buttonType={TEXT} label="EN" onClick={() => { setLanguage(ENGLISH); }} />
-        </div>
+        <Button
+          className={en}
+          buttonType={TEXT}
+          label={i18n({ path: 'header.en', language })}
+          onClick={() => { setLanguage(ENGLISH); }}
+          tabIndex="-1"
+        />
+        <Button
+          className={tc}
+          buttonType={TEXT}
+          label={i18n({ path: 'header.tc', language })}
+          onClick={() => { setLanguage(TRADITIONAL_CHINESE); }}
+          tabIndex="-1"
+        />
       </div>
     </header>
   );

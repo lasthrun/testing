@@ -1,25 +1,37 @@
 .container {
   display: flex;
   justify-content: center;
-  padding: 0 var(--alignmentL);
   background-color: var(--white);
   border-bottom: 1px solid var(--paleGrey);
 }
 
-.wrapper {
-  display: flex;
+.container .wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  grid-template-areas: 'logo . en tc';
+  grid-column-gap: var(--alignmentS);
   align-items: center;
-  justify-content: space-between;
+  padding: 0 var(--alignmentL);
+  height: 100%;
   max-width: var(--box-max-width);
   width: 100%;
-  height: 100%;
 }
 
 .container .homeButton {
-  background-color: var(--brand);
-  color: var(--white);
+  grid-area: logo;
+  font-family: var(--logo), var(--brandFont), sans-serif;
+  color: var(--brand);
+  font-size: 20px;
 }
 
 .container .homeButton:hover {
-  background-color: var(--brandHover);
+  color: var(--brand);
+}
+
+.container .en {
+  grid-area: en;
+}
+
+.container .tc {
+  grid-area: tc;
 }

@@ -2,12 +2,13 @@
   padding: var(--alignmentS) var(--alignmentM);
   border: none;
   min-width: 80px;
+  cursor: pointer;
 }
 
 .basic {
   background-color: var(--darkBlue);
   color: var(--white);
-  transition: background-color .2s;
+  transition: background-color var(--during);
 }
 
 .basic:hover {
@@ -17,18 +18,20 @@
 .border {
   background-color: var(--white);
   border: 2px solid var(--darkBlue);
-  transition: border .2s;
+  color: var(--darkBlue);
+  transition: all var(--during);
 }
 
 .border:hover {
-  border: 2px solid var(--darkBlueHover);
+  background-color: var(--darkBlue);
+  color: var(--white);
 }
 
 .text {
   padding: 0;
   background-color: var(--transparent);
   color: var(--black);
-  transition: color .2s;
+  transition: color var(--during);
   min-width: auto;
 }
 

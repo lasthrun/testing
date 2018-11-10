@@ -1,6 +1,7 @@
 export default {
   header: {
-    home: '主頁',
+    testing: 'Testing Social App',
+    en: 'EN',
+    tc: '中',
   },
-  welcome: '你好',
 };

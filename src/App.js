@@ -1,17 +1,13 @@
 import React from 'react';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Context from './Context';
 import stores from './reducers';
 import Landing from './routes/Landing';
+import User from './routes/User';
 import { useContextCreator } from './hooks';
 import './theme.css';
-/**
- * fontawesome initialize
- * */
-library.add(faAngleDown);
+import './icon';
 
 export default function App() {
   const context = useContextCreator();
@@ -21,6 +17,7 @@ export default function App() {
       <Router>
         <Context.Provider value={context}>
           <Landing />
+          <User />
         </Context.Provider>
       </Router>
     </Provider>

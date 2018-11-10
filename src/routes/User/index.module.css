@@ -1,0 +1,33 @@
+.container {
+  display: grid;
+  grid-template-rows: var(--header-height) 1fr;
+  grid-template-columns: 1fr minmax(0, var(--box-max-width)) 1fr;
+  grid-template-areas:
+    "header header header"
+    ". main .";
+}
+
+.wrapper {
+  grid-area: main;
+  display: grid;
+  padding: 0 var(--alignmentL);
+  grid-template-columns: 240px 1fr;
+  grid-template-areas: "sideBar content";
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  grid-area: header;
+}
+
+.sideBar {
+  position: sticky;
+  top: var(--header-height);
+  grid-area: sideBar;
+  height: calc(100vh - var(--header-height));
+}
+
+.main {
+  grid-area: content;
+}

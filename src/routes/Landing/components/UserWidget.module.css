@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--alignmentL);
+  border: 1px solid var(--paleGrey);
+  cursor: pointer;
+  transition: background-color var(--during);
+}
+
+.container:hover {
+  background-color: var(--lightBlueHover);
+}
+
+.container .information {
+  margin-top: var(--alignmentS);
+}
+
+.container .information:first-child {
+  margin-top: 0;
+}
+
+.container .icon {
+  margin-right: var(--alignmentXS);
+  color: var(--brand)
+}
+
+.container .name {
+  font-size: 16px;
+}
+
+.container .username {
+  margin-left: var(--alignmentXS);
+  color: var(--grey)
+}

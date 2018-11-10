@@ -1,16 +1,15 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { getUsers } from '../../../apis';
 import REDUCERS_TYPE_CHECKS from '../../../constants/REDUCERS_TYPE_CHECKS';
 import { USERS } from '../../../constants/REDUCER_TYPES';
-import Context from '../../../Context';
 import styles from './UserList.module.css';
+import UserWidget from './UserWidget';
 
 export default function UserList(props) {
   const { updateUsers, className, users } = props;
-  const { container, wrapper } = styles;
-  const context = useContext(Context);
+  const { container } = styles;
   useEffect(async () => {
     const response = await getUsers();
     updateUsers(response.data);
@@ -18,7 +17,12 @@ export default function UserList(props) {
 
   return (
     <section className={classNames(container, className)}>
-      <div className={wrapper} />
+      {Object.keys(users).map(userKey => (
+        <UserWidget
+          key={userKey}
+          user={users[userKey]}
+        />
+      ))}
     </section>
   );
 }
