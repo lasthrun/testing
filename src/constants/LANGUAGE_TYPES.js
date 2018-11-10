@@ -1,0 +1,2 @@
+export const ENGLISH = 'ENGLISH';
+export const TRADITIONAL_CHINESE = 'TRADITIONAL_CHINESE';
