@@ -1,16 +1,16 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Route } from 'react-router-dom';
 import styles from './UserWidget.module.css';
 import REDUCERS_TYPE_CHECKS from '../../../constants/REDUCERS_TYPE_CHECKS';
 import { USERS } from '../../../constants/REDUCER_TYPES';
+import UserInformation from '../../../components/UserInformation';
 
 export default function UserWidget(props) {
   const { user, className } = props;
   const {
-    container, name, information, username, icon,
+    container, name, information, username,
   } = styles;
 
   return (
@@ -20,37 +20,29 @@ export default function UserWidget(props) {
           role="button"
           tabIndex="0"
           className={classNames(container, className)}
-          onClick={() => { history.push(`/user/${user.id}`); }}
-          onKeyPress={() => { history.push(`/user/${user.id}`); }}
+          onClick={() => { history.push(`/user/${user.id}/todos`); }}
+          onKeyPress={() => { history.push(`/user/${user.id}/todos`); }}
         >
           <span className={classNames(name, information)}>
             {user.name}
             <span className={username}>{`@${user.username}`}</span>
           </span>
-          <span className={information}>
-            <FontAwesomeIcon className={icon} icon="briefcase" />
-            {user.company.name}
-          </span>
-          <span className={information}>
-            <FontAwesomeIcon className={icon} icon="phone" />
-            {user.phone}
-          </span>
-          <a
+          <UserInformation className={information} iconName="briefcase" data={user.company.name} />
+          <UserInformation className={information} iconName="phone" data={user.phone} />
+          <UserInformation
             className={information}
+            iconName="envelope"
+            data={user.email}
+            isLink
             href={`mailto:${user.email}`}
-            tabIndex="-1"
-          >
-            <FontAwesomeIcon className={icon} icon="envelope" />
-            {user.email}
-          </a>
-          <a
+          />
+          <UserInformation
             className={information}
+            iconName="link"
+            data={user.website}
+            isLink
             href={`http://${user.website}`}
-            tabIndex="-1"
-          >
-            <FontAwesomeIcon className={icon} icon="link" />
-            {user.website}
-          </a>
+          />
         </div>
       )}
     />

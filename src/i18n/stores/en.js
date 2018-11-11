@@ -8,6 +8,9 @@ export default {
     tc: '中',
   },
   user: {
+    todos: 'Todos',
+    albums: 'Albums',
+    posts: 'Posts',
     addressButton: '{name} Address',
     street: 'Street',
     suite: 'Suite',

@@ -3,7 +3,7 @@
   align-items: flex-start;
   justify-content: center;
   position: fixed;
-  padding-top: 30%;
+  padding-top: 30vh;
   background-color: var(--paleGreyAlpha);
   left: 0;
   top: 0;
@@ -27,7 +27,8 @@
   background-color: var(--white);
   border: 1px solid var(--black);
   border-radius: 4px;
-  width: 80%;
+  max-width: 80%;
+  min-width: 300px;
   visibility: hidden;
   opacity: 0;
   transition: top var(--during), visibility 0s, opacity var(--during);

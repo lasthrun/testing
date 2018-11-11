@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: var(--alignmentM) var(--alignmentS) var(--alignmentL) 0;
+  padding: var(--alignmentM) 0 var(--alignmentL) 0;
   border-right: 1px solid var(--paleGrey);
 }
 
@@ -11,17 +11,16 @@
 }
 
 .container .username {
-  margin-bottom: calc(var(--alignmentL) - var(--alignmentS));
+  margin-bottom: var(--alignmentL);
   color: var(--grey);
+}
+
+.container .tabWrapper {
+  width: 100%;
 }
 
 .container .information {
   margin-top: var(--alignmentS);
-}
-
-.container .icon {
-  margin-right: var(--alignmentXS);
-  color: var(--brand)
 }
 
 .container .address {

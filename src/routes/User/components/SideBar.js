@@ -10,59 +10,80 @@ import Button, { BORDER, TEXT } from '../../../components/Button';
 import i18n from '../../../i18n';
 import Dialog from '../../../components/Dialog';
 import { useDialog } from '../../../hooks';
+import TabRender from './TabRender';
+import UserInformation from '../../../components/UserInformation';
 
 /**
- * @return {element|null}
- */
+ * @description SideBar constants
+ * */
+const TODOS = 'TODOS';
+const ALBUMS = 'ALBUMS';
+const POSTS = 'POSTS';
+
 export default function SideBar(props) {
+  // ===============================================================================================
+  // variables
+  // ===============================================================================================
   const {
     className, user,
   } = props;
   const {
-    container,
-    name,
-    username,
-    information,
-    icon,
-    address,
-    addressDialog,
-    dialogHeader,
-    label,
-    data,
+    container, name, username, information, address, addressDialog, dialogHeader, label, data,
   } = styles;
   const { language } = useContext(Context);
   const { isOpen, openDialog, closeDialog } = useDialog();
-
+  // ===============================================================================================
+  // DOM
+  // ===============================================================================================
   return (
     <section className={classNames(container, className)}>
       <h3 className={name}>
         {user.name}
       </h3>
       <span className={username}>{`@${user.username}`}</span>
-      <span className={information}>
-        <FontAwesomeIcon className={icon} icon="briefcase" />
-        {user.company.name}
-      </span>
-      <span className={information}>
-        <FontAwesomeIcon className={icon} icon="phone" />
-        {user.phone}
-      </span>
-      <a
+      <TabRender
+        url={`/user/${user.id}/todos`}
+        name={i18n({
+          path: 'user.todos',
+          language,
+        })}
+        path="/user/:userId/todos"
+        id={TODOS}
+      />
+      <TabRender
+        url={`/user/${user.id}/albums`}
+        name={i18n({
+          path: 'user.albums',
+          language,
+        })}
+        path="/user/:userId/albums"
+        id={ALBUMS}
+      />
+      <TabRender
+        url={`/user/${user.id}/posts`}
+        name={i18n({
+          path: 'user.posts',
+          language,
+        })}
+        path="/user/:userId/posts"
+        id={POSTS}
+      />
+      <UserInformation className={information} iconName="briefcase" data={user.company.name} />
+      <UserInformation className={information} iconName="phone" data={user.phone} />
+      <UserInformation
         className={information}
+        iconName="envelope"
+        data={user.email}
+        isLink
         href={`mailto:${user.email}`}
-        tabIndex="-1"
-      >
-        <FontAwesomeIcon className={icon} icon="envelope" />
-        {user.email}
-      </a>
-      <a
+      />
+      <UserInformation
         className={information}
+        iconName="link"
+        data={user.website}
+        isLink
         href={`http://${user.website}`}
-        tabIndex="-1"
-      >
-        <FontAwesomeIcon className={icon} icon="link" />
-        {user.website}
-      </a>
+      />
       <Button
         className={address}
         buttonType={BORDER}

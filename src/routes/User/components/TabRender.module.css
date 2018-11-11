@@ -1,0 +1,30 @@
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.container.active {
+  border-right: 2px solid var(--black);
+}
+
+.container .tab {
+  padding: var(--alignmentS) 0;
+  width: 100%;
+  text-align: left;
+}
+
+.container .tabArrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 20px;
+  opacity: 0;
+  transition: all var(--during);
+}
+
+.container .tabArrow.active {
+  right: var(--alignmentS);
+  opacity: 1;
+}

@@ -9,6 +9,7 @@ import { updateUser as updateUserAction } from '../../actions';
 import { getUserById } from '../../apis';
 import { USERS } from '../../constants/REDUCER_TYPES';
 import REDUCERS_TYPE_CHECKS from '../../constants/REDUCERS_TYPE_CHECKS';
+import Todos from '../Todos';
 
 function UserDetail(props) {
   const {
@@ -22,7 +23,7 @@ function UserDetail(props) {
     header,
     sideBar,
   } = styles;
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(user.id !== Number.parseInt(match.params.userId, 10));
   // get user data
   useEffect(async () => {
     const response = await getUserById(match.params.userId);
@@ -30,10 +31,10 @@ function UserDetail(props) {
   }, []);
   // when get data succeed. render UI
   useEffect(() => {
-    if (user.id === Number.parseInt(match.params.userId, 10)) {
+    if (isLoading && user.id === Number.parseInt(match.params.userId, 10)) {
       setIsLoading(false);
     }
-  }, [user]);
+  }, [user, isLoading]);
 
   return (
     <section className={container}>
@@ -43,6 +44,7 @@ function UserDetail(props) {
           : (
             <div className={wrapper}>
               <SideBar className={sideBar} />
+              <Todos />
             </div>
           )
       }

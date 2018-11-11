@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Button.module.css';
+
 /**
  * @description constants for types of button UI
  * */
@@ -16,10 +17,12 @@ export const TEXT = 'TEXT';
  * @param {string} [props.className=''] - custom class name
  * @param {string} props.label - button label
  * @param {function} props.onClick
+ * @param {function} props.onHover
+ * @param {function} props.onLeave
  * */
 export default function Button(props) {
   const {
-    className, label, buttonType, onClick, tabIndex,
+    className, label, buttonType, onClick, tabIndex, onHover, onLeave,
   } = props;
   const buttonClasses = classNames(
     styles.container,
@@ -35,6 +38,14 @@ export default function Button(props) {
       className={buttonClasses}
       type="button"
       onClick={onClick}
+      onMouseOver={onHover}
+      onFocus={() => {
+        onHover();
+      }}
+      onMouseOut={onLeave}
+      onBlur={() => {
+        onLeave();
+      }}
     >
       {label}
     </button>
@@ -51,10 +62,14 @@ Button.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  onHover: PropTypes.func,
+  onLeave: PropTypes.func,
 };
 
 Button.defaultProps = {
   className: '',
   tabIndex: '0',
   buttonType: BASIC,
+  onHover: () => {},
+  onLeave: () => {},
 };

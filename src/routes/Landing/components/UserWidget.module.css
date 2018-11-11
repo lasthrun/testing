@@ -20,11 +20,6 @@
   margin-top: 0;
 }
 
-.container .icon {
-  margin-right: var(--alignmentXS);
-  color: var(--brand)
-}
-
 .container .name {
   font-size: 16px;
 }
