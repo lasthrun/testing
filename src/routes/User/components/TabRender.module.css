@@ -3,10 +3,6 @@
   width: 100%;
 }
 
-.container.active {
-  border-right: 2px solid var(--black);
-}
-
 .container .tab {
   padding: var(--alignmentS) 0;
   width: 100%;

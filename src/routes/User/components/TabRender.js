@@ -22,7 +22,6 @@ export default function TabRender(props) {
           className={classNames(
             className,
             container,
-            { [active]: history.location.pathname.indexOf(route) !== -1 },
           )}
         >
           <Button
