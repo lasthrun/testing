@@ -1,7 +1,9 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
-  faEnvelope, faLink, faPhone, faBriefcase, faAngleRight,
+  faAngleRight, faBriefcase, faCaretDown, faCaretUp, faEnvelope, faLink, faPhone,
 } from '@fortawesome/free-solid-svg-icons';
-import { faAddressBook } from '@fortawesome/free-regular-svg-icons';
 
-library.add(faEnvelope, faPhone, faLink, faAddressBook, faBriefcase, faAngleRight);
+library.add(
+  faEnvelope, faPhone, faLink, faBriefcase, faAngleRight, faCaretUp,
+  faCaretDown,
+);

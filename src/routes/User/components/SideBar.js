@@ -1,24 +1,18 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import REDUCERS_TYPE_CHECKS from '../../../constants/REDUCERS_TYPE_CHECKS';
 import { USERS } from '../../../constants/REDUCER_TYPES';
+import {
+  ALBUMS_ROUTE, POSTS_ROUTE, TODOS_ROUTE, USERS_ROUTE,
+} from '../../../constants/ROUTE_TYPES';
 import styles from './SideBar.module.css';
-import Context from '../../../Context';
 import Button, { BORDER, TEXT } from '../../../components/Button';
 import i18n from '../../../i18n';
 import Dialog from '../../../components/Dialog';
-import { useDialog } from '../../../hooks';
+import { useAppContext, useDialog } from '../../../hooks';
 import TabRender from './TabRender';
 import UserInformation from '../../../components/UserInformation';
-
-/**
- * @description SideBar constants
- * */
-const TODOS = 'TODOS';
-const ALBUMS = 'ALBUMS';
-const POSTS = 'POSTS';
 
 export default function SideBar(props) {
   // ===============================================================================================
@@ -30,7 +24,7 @@ export default function SideBar(props) {
   const {
     container, name, username, information, address, addressDialog, dialogHeader, label, data,
   } = styles;
-  const { language } = useContext(Context);
+  const { language } = useAppContext();
   const { isOpen, openDialog, closeDialog } = useDialog();
   // ===============================================================================================
   // DOM
@@ -42,31 +36,28 @@ export default function SideBar(props) {
       </h3>
       <span className={username}>{`@${user.username}`}</span>
       <TabRender
-        url={`/user/${user.id}/todos`}
+        url={`/${USERS_ROUTE}/${user.id}/${TODOS_ROUTE}`}
         name={i18n({
           path: 'user.todos',
           language,
         })}
-        path="/user/:userId/todos"
-        id={TODOS}
+        route={TODOS_ROUTE}
       />
       <TabRender
-        url={`/user/${user.id}/albums`}
+        url={`/${USERS_ROUTE}/${user.id}/${ALBUMS_ROUTE}`}
         name={i18n({
           path: 'user.albums',
           language,
         })}
-        path="/user/:userId/albums"
-        id={ALBUMS}
+        route={ALBUMS_ROUTE}
       />
       <TabRender
-        url={`/user/${user.id}/posts`}
+        url={`/${USERS_ROUTE}/${user.id}/${POSTS_ROUTE}`}
         name={i18n({
           path: 'user.posts',
           language,
         })}
-        path="/user/:userId/posts"
-        id={POSTS}
+        route={POSTS_ROUTE}
       />
       <UserInformation className={information} iconName="briefcase" data={user.company.name} />
       <UserInformation className={information} iconName="phone" data={user.phone} />

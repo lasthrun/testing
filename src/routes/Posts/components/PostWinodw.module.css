@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--alignmentM) 0;
+  overflow: hidden;
+}
+
+.container .postTitle {
+  text-align: left;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: var(--brandFont) sans-serif;
+}
+
+.container .postDialog {
+  display: grid;
+  grid-template-rows: 40px auto auto auto;
+  grid-row-gap: var(--alignmentM);
+  grid-column-gap: var(--alignmentM);
+  grid-template-areas: 'header' 'title' 'body' 'comments';
+  margin-top: 10vh;
+  padding-bottom: var(--alignmentM);
+  max-width: 60%;
+}
+
+.container .dialogHeader {
+  grid-area: header;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 var(--alignmentL) var(--alignmentS);
+  border-bottom: 1px solid var(--black);
+}
+
+.container .postDialogTitle {
+  grid-area: title;
+  padding: 0 var(--alignmentL)
+}
+
+.container .postDialogBody {
+  font-size: 24px;
+  grid-area: body;
+  padding: 0 var(--alignmentL)
+}
+
+.container .comments {
+  grid-area: comments;
+  padding: 0 var(--alignmentL)
+}

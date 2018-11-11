@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { ENGLISH } from '../constants/LANGUAGE_TYPES';
+import Context from '../Context';
 
 export const useContextCreator = () => {
   const [language, setLanguage] = useState(ENGLISH);
@@ -9,3 +10,5 @@ export const useContextCreator = () => {
     setLanguage,
   };
 };
+
+export const useAppContext = () => useContext(Context);

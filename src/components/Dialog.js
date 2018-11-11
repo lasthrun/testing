@@ -15,7 +15,10 @@ export default function Dialog(props) {
     <section
       role="presentation"
       className={classNames(container, { [active]: isOpen })}
-      onClick={onClose}
+      onClick={(event) => {
+        event.stopPropagation();
+        onClose();
+      }}
     >
       <div
         role="presentation"
@@ -24,7 +27,7 @@ export default function Dialog(props) {
         }}
         className={classNames(className, dialog, { [active]: isOpen })}
       >
-        {children}
+        {isOpen ? children : null}
       </div>
     </section>
   );

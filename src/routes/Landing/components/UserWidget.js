@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
+import { USERS_ROUTE } from '../../../constants/ROUTE_TYPES';
 import styles from './UserWidget.module.css';
 import REDUCERS_TYPE_CHECKS from '../../../constants/REDUCERS_TYPE_CHECKS';
 import { USERS } from '../../../constants/REDUCER_TYPES';
@@ -20,8 +21,8 @@ export default function UserWidget(props) {
           role="button"
           tabIndex="0"
           className={classNames(container, className)}
-          onClick={() => { history.push(`/user/${user.id}/todos`); }}
-          onKeyPress={() => { history.push(`/user/${user.id}/todos`); }}
+          onClick={() => { history.push(`/${USERS_ROUTE}/${user.id}/todos`); }}
+          onKeyPress={() => { history.push(`/${USERS_ROUTE}/${user.id}/todos`); }}
         >
           <span className={classNames(name, information)}>
             {user.name}

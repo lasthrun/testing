@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  align-items : flex-start;
+  padding: var(--alignmentXS) 0;
+}
+
+.container .checkbox {
+  margin-right: var(--alignmentS);
+}

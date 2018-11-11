@@ -1,0 +1,14 @@
+.container {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  padding-left: var(--alignmentL);
+}
+
+.container .album {
+  border-top: 1px solid var(--black);
+}
+
+.container .album.first {
+  border-top: none;
+}

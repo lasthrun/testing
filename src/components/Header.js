@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 import classNames from 'classnames';
+import { useAppContext } from '../hooks';
 import styles from './Header.module.css';
 import i18n from '../i18n';
-import Context from '../Context';
 import Button, { TEXT } from './Button';
 import { ENGLISH, TRADITIONAL_CHINESE } from '../constants/LANGUAGE_TYPES';
 
@@ -13,7 +13,7 @@ export default function Header(props) {
   const {
     container, homeButton, en, tc, wrapper,
   } = styles;
-  const { language, setLanguage } = useContext(Context);
+  const { language, setLanguage } = useAppContext();
 
   return (
     <header className={classNames(className, container)}>

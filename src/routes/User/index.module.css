@@ -27,7 +27,3 @@
   grid-area: sideBar;
   height: calc(100vh - var(--header-height));
 }
-
-.main {
-  grid-area: content;
-}

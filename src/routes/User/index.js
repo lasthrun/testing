@@ -2,6 +2,7 @@ import { Route } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { USERS_ROUTE } from '../../constants/ROUTE_TYPES';
 import styles from './index.module.css';
 import Header from '../../components/Header';
 import SideBar from './containers/SideBar';
@@ -10,6 +11,8 @@ import { getUserById } from '../../apis';
 import { USERS } from '../../constants/REDUCER_TYPES';
 import REDUCERS_TYPE_CHECKS from '../../constants/REDUCERS_TYPE_CHECKS';
 import Todos from '../Todos';
+import Albums from '../Albums';
+import Posts from '../Posts';
 
 function UserDetail(props) {
   const {
@@ -23,18 +26,26 @@ function UserDetail(props) {
     header,
     sideBar,
   } = styles;
+
+  // indicate should load user or not
   const [isLoading, setIsLoading] = useState(user.id !== Number.parseInt(match.params.userId, 10));
+
   // get user data
   useEffect(async () => {
-    const response = await getUserById(match.params.userId);
-    updateUser(response.data);
+    const getData = async () => {
+      const response = await getUserById(match.params.userId);
+      updateUser(response.data);
+    };
+    await getData();
+    return () => { getData.cancel(); };
   }, []);
+
   // when get data succeed. render UI
   useEffect(() => {
     if (isLoading && user.id === Number.parseInt(match.params.userId, 10)) {
       setIsLoading(false);
     }
-  }, [user, isLoading]);
+  }, [user]);
 
   return (
     <section className={container}>
@@ -45,6 +56,8 @@ function UserDetail(props) {
             <div className={wrapper}>
               <SideBar className={sideBar} />
               <Todos />
+              <Albums />
+              <Posts />
             </div>
           )
       }
@@ -68,12 +81,14 @@ const mapStateToProps = state => (
 
 const mapDispatchToProps = { updateUser: updateUserAction };
 
+const Router = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(UserDetail);
+
 export default () => (
   <Route
-    path="/user/:userId"
-    component={connect(
-      mapStateToProps,
-      mapDispatchToProps,
-    )(UserDetail)}
+    path={`/${USERS_ROUTE}/:userId`}
+    component={Router}
   />
 );

@@ -3,7 +3,6 @@
   align-items: flex-start;
   justify-content: center;
   position: fixed;
-  padding-top: 30vh;
   background-color: var(--paleGreyAlpha);
   left: 0;
   top: 0;
@@ -24,6 +23,8 @@
 .container .dialog {
   position: relative;
   top: 50px;
+  margin-bottom: 50px;
+  margin-top: 30vh;
   background-color: var(--white);
   border: 1px solid var(--black);
   border-radius: 4px;

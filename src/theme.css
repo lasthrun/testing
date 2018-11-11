@@ -3,7 +3,7 @@ html {
   height: 100%;
   color: var(--black);
   font-family: var(--brandFont) sans-serif;
-  font-size: 14px;
+  font-size: var(--fontSizeBase);
 }
 
 body {
@@ -58,21 +58,22 @@ html {
   --grey: rgba(101,119,134,1);
   --paleGrey: rgba(184,190,202,1);
   --paleGreyAlpha: rgba(0,0,0,.47);
-  
+
   /* alignment */
   --alignmentL: 24px;
   --alignmentM: 16px;
   --alignmentS: 8px;
   --alignmentXS: 4px;
-  
+
   /* ui */
   --box-max-width: 1028px;
   --header-height: 40px;
-  
+
   /* transition during */
   --during: .2s;
-  
+
   /* fonts */
   --brandFont: 'Roboto';
   --logo: 'Spicy Rice';
+  --fontSizeBase: 14px;
 }

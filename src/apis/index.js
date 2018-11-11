@@ -1,5 +1,4 @@
-export { getPosts } from './posts/getPosts';
-export { getPostById } from './posts/getPostById';
-export { getPostComments } from './posts/getPostComments';
-export { getUsers } from './users/getUsers';
-export { getUserById } from './users/getUserById';
+export * from './users';
+export * from './posts';
+export * from './todos';
+export * from './albums';

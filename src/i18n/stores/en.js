@@ -19,4 +19,7 @@ export default {
     longitude: 'Longitude',
     latitude: 'Latitude',
   },
+  posts: {
+    comments: 'Comments',
+  },
 };

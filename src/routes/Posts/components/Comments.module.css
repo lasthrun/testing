@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container .title {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+  margin: var(--alignmentM) 0;
+}
+
+.container .name {
+  font-weight: bold;
+  font-size: 18px;
+  padding-top: var(--alignmentS);
+  margin-top: var(--alignmentS);
+  border-top: 1px solid var(--grey);
+}
+
+.container .name.first {
+  padding-top: 0;
+  border-top: none;
+  margin-top: 0;
+}
+
+.container .email {
+  margin-bottom: var(--alignmentXS);
+  color: var(--grey);
+}

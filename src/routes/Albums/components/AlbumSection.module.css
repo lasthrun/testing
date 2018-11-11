@@ -1,0 +1,26 @@
+.container {
+  padding: var(--alignmentM) 0;
+}
+
+.container .albumRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.container .albumRow.active {
+  padding-bottom: var(--alignmentM);
+  border-bottom: 1px solid var(--black);
+  margin-bottom: var(--alignmentM);
+}
+
+.container .albumTitle {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.container .icon {
+  font-size: 24px;
+  color: var(--brand);
+}
