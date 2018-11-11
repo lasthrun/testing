@@ -47,7 +47,7 @@ function TodosDetail(props) {
           key={option.key}
           onCheck={() => {}}
           title={option.title}
-          isCompleted={option.isCompleted}
+          isChecked={option.isCompleted}
         />
       ))}
     </section>

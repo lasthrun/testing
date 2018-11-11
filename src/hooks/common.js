@@ -1,5 +1,8 @@
 import { useState } from 'react';
-
+/**
+ * @description create dialog handler
+ * @return {object}
+ * */
 export const useDialog = () => {
   const [isOpen, setIsOpen] = useState(false);
 

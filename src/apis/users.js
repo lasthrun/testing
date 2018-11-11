@@ -7,7 +7,8 @@ export const getUsers = () => request({
   method: 'get',
 });
 /**
- * @description get users
+ * @description get user by id
+ * @param {string} id - user id
  * */
 export const getUserById = id => request({
   url: `/users/${id}`,

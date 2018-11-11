@@ -23,7 +23,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "lint": "eslint ./ --fix"
   },
   "devDependencies": {
     "eslint": "5.6.0",
@@ -43,6 +44,6 @@
     "not op_mini all"
   ],
   "engines": {
-    "node": "8.11.1"
+    "node": ">=8.11.1"
   }
 }

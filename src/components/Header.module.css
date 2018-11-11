@@ -29,9 +29,15 @@
 }
 
 .container .en {
+  color: var(--paleGrey);
   grid-area: en;
 }
 
 .container .tc {
+  color: var(--paleGrey);
   grid-area: tc;
+}
+
+.container .tc.active, .container .en.active {
+  color: var(--black);
 }

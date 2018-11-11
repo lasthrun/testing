@@ -46,17 +46,17 @@
   border-bottom: 1px solid var(--black);
 }
 
-.container .label {
+.container .table {
   grid-area: label;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding-left: var(--alignmentL);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: repeat(auto-fill, 1fr);
+  grid-row-gap: var(--alignmentS);
+  grid-column-gap: var(--alignmentXS);
+  padding: 0 var(--alignmentL);
 }
 
-.container .data {
-  grid-area: data;
-  display: flex;
-  flex-direction: column;
-  padding-right: var(--alignmentL);
+.container .label {
+  grid-column: span 1;
+  text-align: right;
 }

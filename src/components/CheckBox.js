@@ -4,14 +4,14 @@ import classNames from 'classnames';
 import styles from './CheckBox.module.css';
 /**
  * @description basic checkbox component
- * @param {string} props.className
+ * @param {string} [props.className='']
  * @param {string} props.title - checkbox title
  * @param {string} props.onCheck
- * @param {string} props.isCompleted - checkbox status
+ * @param {string} props.isChecked
  * */
 export default function Checkbox(props) {
   const {
-    className, title, onCheck, isCompleted,
+    className, title, onCheck, isChecked,
   } = props;
   const { container, checkbox } = styles;
 
@@ -24,7 +24,7 @@ export default function Checkbox(props) {
           key="checkbox"
           className={checkbox}
           type="checkbox"
-          checked={isCompleted}
+          checked={isChecked}
           onChange={(event) => {
             onCheck(event.target.checked);
           }}
@@ -39,7 +39,7 @@ Checkbox.propTypes = {
   className: PropTypes.string,
   onCheck: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
-  isCompleted: PropTypes.bool.isRequired,
+  isChecked: PropTypes.bool.isRequired,
 };
 
 Checkbox.defaultProps = {

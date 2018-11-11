@@ -1,6 +1,6 @@
 import request from '../utilities/request';
 /**
- * @description get posts of user
+ * @description get user posts by user id
  * @param {number} userId - user id
  * */
 export function getPostsByUserId(userId) {
@@ -11,7 +11,7 @@ export function getPostsByUserId(userId) {
   });
 }
 /**
- * @description get comments of post
+ * @description get post comments by post id
  * @param {number} postId - post id
  * */
 export function getCommentsByPostId(postId) {

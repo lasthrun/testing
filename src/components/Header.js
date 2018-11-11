@@ -7,11 +7,14 @@ import styles from './Header.module.css';
 import i18n from '../i18n';
 import Button, { TEXT } from './Button';
 import { ENGLISH, TRADITIONAL_CHINESE } from '../constants/LANGUAGE_TYPES';
-
+/**
+ * @description header component
+ * @param {string} [props.className='']
+ * */
 export default function Header(props) {
   const { className } = props;
   const {
-    container, homeButton, en, tc, wrapper,
+    container, homeButton, en, tc, wrapper, active,
   } = styles;
   const { language, setLanguage } = useAppContext();
 
@@ -33,14 +36,14 @@ export default function Header(props) {
           )}
         />
         <Button
-          className={en}
+          className={classNames(en, { [active]: language === ENGLISH })}
           buttonType={TEXT}
           label={i18n({ path: 'header.en', language })}
           onClick={() => { setLanguage(ENGLISH); }}
           tabIndex="-1"
         />
         <Button
-          className={tc}
+          className={classNames(tc, { [active]: language === TRADITIONAL_CHINESE })}
           buttonType={TEXT}
           label={i18n({ path: 'header.tc', language })}
           onClick={() => { setLanguage(TRADITIONAL_CHINESE); }}
@@ -52,5 +55,9 @@ export default function Header(props) {
 }
 
 Header.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
+
+Header.defaultProps = {
+  className: '',
 };

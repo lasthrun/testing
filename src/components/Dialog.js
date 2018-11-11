@@ -4,6 +4,10 @@ import classNames from 'classnames';
 import styles from './Dialog.module.css';
 /**
  * @description basic dialog component
+ * @param {string} [props.className='']
+ * @param {boolean} props.isOpen - indicate the dialog is open or not
+ * @param {onClose} props.onClose - triggered by closing the dialog
+ * @param {element} props.children - dialog content component
  * */
 export default function Dialog(props) {
   const {

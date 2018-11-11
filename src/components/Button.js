@@ -2,23 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Button.module.css';
-
 /**
  * @description constants for types of button UI
  * */
 export const BASIC = 'BASIC';
 export const BORDER = 'BORDER';
 export const TEXT = 'TEXT';
-
 /**
  * @description basic button component
- * @param [props.buttonType=BUTTON_TYPES.BASIC] - indicate which type of UI should the
+ * @param [props.buttonType=BASIC] - indicate which type of UI should the
  * button display
  * @param {string} [props.className=''] - custom class name
  * @param {string} props.label - button label
- * @param {function} props.onClick
- * @param {function} props.onHover
- * @param {function} props.onLeave
+ * @param {string} [props.tabIndex='0']
+ * @param {function} props.onClick - trigger by on click button
+ * @param {function} [props.onHover=()=>{}] - trigger by mouse over button and on focus
+ * @param {function} [props.onLeave=()=>{}] - trigger by mouse out button and on blur
  * */
 export default function Button(props) {
   const {

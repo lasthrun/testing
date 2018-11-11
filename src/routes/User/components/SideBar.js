@@ -22,7 +22,7 @@ export default function SideBar(props) {
     className, user,
   } = props;
   const {
-    container, name, username, information, address, addressDialog, dialogHeader, label, data,
+    container, name, username, information, address, addressDialog, dialogHeader, table, label,
   } = styles;
   const { language } = useAppContext();
   const { isOpen, openDialog, closeDialog } = useDialog();
@@ -98,50 +98,48 @@ export default function SideBar(props) {
             })}
           />
         </div>
-        <div className={label}>
-          <span>
+        <div className={table}>
+          <span className={label}>
             {`${i18n({
               path: 'user.city',
               language,
             })}:`}
           </span>
-          <span>
+          <span>{user.address.city}</span>
+          <span className={label}>
             {`${i18n({
               path: 'user.street',
               language,
             })}:`}
           </span>
-          <span>
+          <span>{user.address.street}</span>
+          <span className={label}>
             {`${i18n({
               path: 'user.suite',
               language,
             })}:`}
           </span>
-          <span>
+          <span>{user.address.suite}</span>
+          <span className={label}>
             {`${i18n({
               path: 'user.zipcode',
               language,
             })}:`}
           </span>
-          <span>
+          <span>{user.address.zipcode}</span>
+          <span className={label}>
             {`${i18n({
               path: 'user.longitude',
               language,
             })}:`}
           </span>
-          <span>
+          <span>{user.address.geo.lng}</span>
+          <span className={label}>
             {`${i18n({
               path: 'user.latitude',
               language,
             })}:`}
           </span>
-        </div>
-        <div className={data}>
-          <span>{user.address.city}</span>
-          <span>{user.address.street}</span>
-          <span>{user.address.suite}</span>
-          <span>{user.address.zipcode}</span>
-          <span>{user.address.geo.lng}</span>
           <span>{user.address.geo.lat}</span>
         </div>
       </Dialog>
