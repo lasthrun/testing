@@ -1,9 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Start The Application
 
 Before your start, please check the environment:
 1. node: >=8.11.1
+
+After checking, please run the command:
 
 ```
 npm i && npm start
@@ -38,9 +38,3 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `npm run lint`
 
 Run eslint and fix problems that can be fixed automatically
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
