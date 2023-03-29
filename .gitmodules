@@ -1,0 +1,3 @@
+[submodule "submodules/lib"]
+	path = submodules/lib
+	url = /Users/lasthrun/WebstormProjects/lib/
